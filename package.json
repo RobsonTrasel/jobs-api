@@ -4,9 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prisma:generate": "prisma generate --schema=./src/infra/shared/database/prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate dev --schema=./src/infra/shared/database/prisma/schema.prisma"
+  },
+  "prisma": {
+    "schema": "./src/infra/database/prisma/schema.prisma",
+    "generate": {
+      "output": "./src/infra/database/prisma/generated"
+    }
   },
   "dependencies": {
+    "@prisma/client": "^4.11.0",
     "@types/uuid": "^9.0.1",
     "@types/validator": "^13.7.13",
     "apollo-server-express": "^3.11.1",
@@ -21,9 +30,8 @@
     "joi": "^17.8.3",
     "lodash": "^4.17.21",
     "pg": "^8.9.0",
+    "prisma": "^4.11.0",
     "reflect-metadata": "^0.1.13",
-    "sequelize": "^6.29.0",
-    "sequelize-typescript": "^2.1.5",
     "ts-jest": "^29.0.5",
     "uuid": "^9.0.0",
     "winston": "^3.8.2"

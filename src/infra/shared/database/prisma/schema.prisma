@@ -8,12 +8,11 @@ datasource db {
 }
 
 model Job {
-  id          Int     @id @default(autoincrement())
-  title       String
-  description String
-  company     String
-  email       String
-  new         Boolean
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        Int     @id @default(autoincrement())
+  title     String
+  company   String
+  location  String
+  salary    Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

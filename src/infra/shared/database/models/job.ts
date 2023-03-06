@@ -7,18 +7,17 @@ export class Job implements PrismaJob {
     title!: string;
     company!: string;
     location!: string;
-    salary?: number | null;
+    salary!: number | null;
     createdAt!: Date;
     updatedAt!: Date;
-    description!: string;
-    email!: string;
-    new!: boolean;
 
     static async create(jobData: PrismaJob): Promise<Job> {
-        const job = await prisma.job.create({
-            data: jobData
+        const newJob = new Job(jobData)
+        
+        const createdJob = await prisma.job.create({
+            data: newJob
         })
-        return new Job(job)
+        return new Job(createdJob)
     }
 
     static async find(id: number): Promise<Job | null> {

@@ -5,4 +5,4 @@ export class HttpException extends Error {
     ) {
         super(message)
     }
-}
+}   

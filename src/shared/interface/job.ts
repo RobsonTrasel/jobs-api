@@ -6,3 +6,4 @@ export interface JobAttributes {
     company: string;
     salary: number;
 }
+
